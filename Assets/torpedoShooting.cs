@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class torpedoShooting : MonoBehaviour {
+public class TorpedoShooting : MonoBehaviour {
 
 	public Rigidbody projectile;
 

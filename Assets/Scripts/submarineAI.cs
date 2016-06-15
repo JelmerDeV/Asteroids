@@ -26,7 +26,7 @@ public class submarineAI : MonoBehaviour {
 
 
 	void Update () {
-<<<<<<< HEAD
+
 		//Debug.Log (sight);
 
 		//if (onState1 == true) {
@@ -34,7 +34,7 @@ public class submarineAI : MonoBehaviour {
 				Quaternion.LookRotation (target.position - myTransform.position), rotationSpeed * Time.deltaTime);
 			myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
 		//}
-=======
+
         //Debug.Log (sight);
        
 		if (onState1 == true) {
@@ -43,7 +43,7 @@ public class submarineAI : MonoBehaviour {
 			myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
             sight = false;
         }
->>>>>>> robindegroot/master
+
 		}
 		
 

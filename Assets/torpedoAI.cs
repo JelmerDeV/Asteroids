@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections;
 
-public class torpedoAI : MonoBehaviour {
+public class TorpedoAI : MonoBehaviour {
 
 	public Transform target; 
 	public float moveSpeed = 8f; 
