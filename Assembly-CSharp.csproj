@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\spawnerAI.cs" />
      <Compile Include="Assets\Scripts\subRoaming.cs" />
      <Compile Include="Assets\Scripts\submarineAI.cs" />
+     <Compile Include="Assets\cameraFollow.cs" />
      <Compile Include="Assets\torpedoAI.cs" />
      <Compile Include="Assets\torpedoShooting.cs" />
  <Reference Include="UnityEngine.Networking">

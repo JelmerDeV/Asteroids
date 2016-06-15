@@ -6,9 +6,9 @@ public class TurnMovement : MonoBehaviour
     public bool Vooruit = false;
     public bool Rechts = false;
     public bool Links = false;
-    public float turnRight = 0;
-    public float turnLeft = 0;
-    public float thrust = 0;
+    private float turnRight = 0;
+    private float turnLeft = 0;
+    private float thrust = 0;
     public float maxThrust = 5;
     void Start()
     {
@@ -67,7 +67,7 @@ public class TurnMovement : MonoBehaviour
             Vooruit = true;
             if (Vooruit == true && thrust < maxThrust)
             {
-                thrust += 0.1f;
+                thrust += 0.2f;
             }
             //transform.Translate (Vector3.forward * Time.deltaTime * thrust);
         }
@@ -92,7 +92,7 @@ public class TurnMovement : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("fish"))
+		if (other.tag == "fish")
         {
             Destroy(other.gameObject);
         }
