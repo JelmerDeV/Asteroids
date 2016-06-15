@@ -17,7 +17,7 @@ public class TurnMovement : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * thrust);
+        transform.Translate(Vector3.up* Time.deltaTime * thrust);
         transform.Rotate(Vector3.down * Time.deltaTime * turnLeft);
         transform.Rotate(Vector3.up * Time.deltaTime * turnRight);
 
@@ -31,7 +31,7 @@ public class TurnMovement : MonoBehaviour
         if (Input.GetKey("right") && thrust > 0.1)
         {
             Rechts = true;
-            if (Rechts == true && turnRight < 150)
+            if (Rechts == true && turnRight < 250)
             {
                 turnLeft = 0;
                 turnRight += 6f;
@@ -48,7 +48,7 @@ public class TurnMovement : MonoBehaviour
         if (Input.GetKey("left") && thrust > 0.1)
         {
             Links = true;
-            if (Links == true && turnLeft < 150)
+            if (Links == true && turnLeft < 250)
             {
                 turnRight = 0;
                 turnLeft += 6f;

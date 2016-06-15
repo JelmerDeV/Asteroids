@@ -61,8 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ButtonScript.cs" />
+    <Compile Include="Assets\Scripts\ButtonScript.cs" />
     <Compile Include="Assets\Scripts\FishAI.cs" />
+    <Compile Include="Assets\Scripts\FollowTarget.cs" />
     <Compile Include="Assets\Scripts\InstructionsMenu.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
@@ -73,6 +74,8 @@
     <Compile Include="Assets\Scripts\spawnerAI.cs" />
     <Compile Include="Assets\Scripts\subRoaming.cs" />
     <Compile Include="Assets\Scripts\submarineAI.cs" />
+    <Compile Include="Assets\Scripts\torpedoAI.cs" />
+    <Compile Include="Assets\Scripts\torpedoShooting.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
