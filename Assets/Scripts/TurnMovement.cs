@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class TurnMovement : MonoBehaviour
@@ -10,13 +11,18 @@ public class TurnMovement : MonoBehaviour
     private float turnLeft = 0;
     private float thrust = 0;
     public float maxThrust = 5;
+	private int gameScore;
+	private int highScore;
+	public Text scoreText;
+	public Text highScoreText;
     void Start()
     {
-
+		UpdateCounterUI ();
     }
 
     void Update()
     {
+		//Debug.Log (thrust);
         transform.Translate(Vector3.up* Time.deltaTime * thrust);
         transform.Rotate(Vector3.forward * Time.deltaTime * turnLeft);
 		transform.Rotate(Vector3.back * Time.deltaTime * turnRight);
@@ -35,7 +41,7 @@ public class TurnMovement : MonoBehaviour
             {
                 turnLeft = 0;
                 turnRight += 5f;
-                Debug.Log(turnRight);
+                //Debug.Log(turnRight);
             }
             //transform.Rotate (Vector3.up * Time.deltaTime * turnRight);
         }
@@ -52,7 +58,7 @@ public class TurnMovement : MonoBehaviour
             {
                 turnRight = 0;
                 turnLeft += 5f;
-                Debug.Log(turnLeft);
+                //Debug.Log(turnLeft);
             }
             //transform.Rotate (Vector3.down * Time.deltaTime * turnLeft);
         }
@@ -95,6 +101,20 @@ public class TurnMovement : MonoBehaviour
 		if (other.tag == "fish")
         {
             Destroy(other.gameObject);
+			gameScore += 10;
+			UpdateCounterUI ();
+			//Debug.Log (gameScore);
+
         }
     }
+
+	void UpdateCounterUI()
+	{
+		if (gameScore > highScore) {
+			highScore = gameScore;
+		}
+		scoreText.text = "Score: " + gameScore;
+		highScoreText.text = "Highscore: " + highScore;
+
+	}
 }

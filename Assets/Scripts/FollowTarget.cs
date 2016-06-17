@@ -3,20 +3,21 @@ using System.Collections;
 
 public class FollowTarget : MonoBehaviour {
 
-    public Transform target;
-    public float smoothTime;
+	public Transform target;
+	public float smoothTime = 0.3f;
 
-    private Vector3 _offset;
-    private Vector3 _velocity = Vector3.zero;
+	private Vector3 velocity = Vector3.zero;
 
-	void Start () {
-        _offset = transform.position - target.position;
+	void Update () {
+		Vector3 goalPosY = target.position;
+		goalPosY.y = transform.position.y;
+
+		Vector3 goalPosX = target.position;
+		goalPosY.x = transform.position.x;
+
+
+
+		transform.position = Vector3.SmoothDamp (transform.position, goalPosY, ref velocity, smoothTime);
+		transform.position = Vector3.SmoothDamp (transform.position, goalPosX, ref velocity, smoothTime);
 	}
-
-    void FixedUpdate()
-    {
-        Vector3 targetPosition = target.position + _offset;
-        //transform.position = target.position + _offset;
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _velocity, smoothTime);
-    }
 }

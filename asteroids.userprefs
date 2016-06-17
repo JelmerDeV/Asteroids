@@ -1,0 +1,22 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FollowTarget.cs">
+    <Files>
+      <File FileName="Assets/torpedoAI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Shooting.cs" Line="1" Column="1" />
+      <File FileName="../../New Unity Project/Assets/Scripts/Shooting.cs" Line="1" Column="1" />
+      <File FileName="Assets/torpedoShooting.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TurnMovement.cs" Line="25" Column="5" />
+      <File FileName="Assets/Scripts/submarineAI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Spawning.cs" Line="1" Column="1" />
+      <File FileName="../../working on/MonkeyBall/Assets/CollectableCounter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FishAI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/subRoaming.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FollowTarget.cs" Line="20" Column="51" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

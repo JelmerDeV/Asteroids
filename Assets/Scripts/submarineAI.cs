@@ -36,13 +36,6 @@ public class submarineAI : MonoBehaviour {
 		//}
 
         //Debug.Log (sight);
-       
-		if (onState1 == true) {
-			myTransform.rotation = Quaternion.Slerp (myTransform.rotation,
-				Quaternion.LookRotation (target.position - myTransform.position), rotationSpeed * Time.deltaTime);
-			myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
-            sight = false;
-        }
 
 		}
 		
