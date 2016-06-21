@@ -11,7 +11,7 @@ public class InstructionsMenu : MonoBehaviour
 
 	public void startGame()
 	{
-		Application.LoadLevel (startLevel);
+		Application.LoadLevel ("gameScene");
 	}
 
 	public void instructionsGame()

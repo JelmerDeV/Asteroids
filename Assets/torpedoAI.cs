@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections;
 
 public class TorpedoAI : MonoBehaviour {
-
+	public AudioSource shootingAudio;
 	public Transform target; 
 	public float moveSpeed = 8f; 
 	public float rotationSpeed = 3f; 
@@ -17,6 +17,7 @@ public class TorpedoAI : MonoBehaviour {
 
 	void Awake()
 	{
+		shootingAudio.Play ();
 		_playerGameObject = GameObject.FindGameObjectWithTag ("Player");
 	}
 
@@ -46,7 +47,7 @@ public class TorpedoAI : MonoBehaviour {
 			myTransform.rotation = Quaternion.Slerp (myTransform.rotation,
 				Quaternion.LookRotation (target.position - myTransform.position), rotationSpeed * Time.deltaTime);
 		}
-		myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
+		myTransform.position += myTransform.up * moveSpeed * Time.deltaTime;
 	}
 
 

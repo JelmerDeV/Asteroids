@@ -18,9 +18,9 @@ public class spawnerAI : MonoBehaviour {
 
 	void Update () {
 
-		transform.Translate (Vector3.forward * Time.deltaTime * speed);
-		transform.Rotate (Vector3.down * Time.deltaTime * rotateL);
-		transform.Rotate (Vector3.up * Time.deltaTime * rotateR);
+		transform.Translate (Vector3.up * Time.deltaTime * speed);
+		transform.Rotate (Vector3.forward * Time.deltaTime * rotateL);
+		transform.Rotate (Vector3.back * Time.deltaTime * rotateR);
 	}
 
 	void move(){

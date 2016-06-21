@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections;
 
 public class torpedoAI : MonoBehaviour {
 
@@ -11,7 +10,6 @@ public class torpedoAI : MonoBehaviour {
 
 	private bool slowDown = false;
 	GameObject _playerGameObject;
-
 	public Transform myTransform; 
 
 

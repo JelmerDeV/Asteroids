@@ -4,24 +4,55 @@ using System.Collections;
 
 public class TurnMovement : MonoBehaviour
 {
-    public bool Vooruit = false;
-    public bool Rechts = false;
-    public bool Links = false;
+	AudioSource Bite;
+	public AudioSource pickupAudio;
+	public AudioSource explodeAudio;
+	private bool Vooruit = false;
+    private bool Rechts = false;
+    private bool Links = false;
     private float turnRight = 0;
     private float turnLeft = 0;
     private float thrust = 0;
-    public float maxThrust = 5;
+    private float maxThrust = 5;
+	private bool Speed_ = false;
+	private bool Invincible_ = false;
+	private int scoreMultiplier = 10;
+	public static float lives = 3f;
 	private int gameScore;
 	private int highScore;
 	public Text scoreText;
 	public Text highScoreText;
+	public Text SpeedText;
+	public Text PowerText;
     void Start()
     {
-		UpdateCounterUI ();
+		Bite = GetComponent (typeof(AudioSource)) as AudioSource;
+		PowerText.color = Color.grey;
+		SpeedText.color = Color.grey;
+		UpdateUI ();
     }
+
+	/*void FixedUpdate(){
+		if (lives == 0f) {
+			GameOver ();
+
+		}
+	}*/
+
+	void GameOver(){
+		Destroy (gameObject);
+
+	}
 
     void Update()
     {
+		
+
+		if (Speed_) {
+			maxThrust = 30;
+		} else if (!Speed_) {
+			maxThrust = 15;
+		}
 		//Debug.Log (thrust);
         transform.Translate(Vector3.up* Time.deltaTime * thrust);
         transform.Rotate(Vector3.forward * Time.deltaTime * turnLeft);
@@ -100,21 +131,57 @@ public class TurnMovement : MonoBehaviour
     {
 		if (other.tag == "fish")
         {
+			Bite.Play ();
             Destroy(other.gameObject);
-			gameScore += 10;
-			UpdateCounterUI ();
+			gameScore += scoreMultiplier;
+			UpdateUI ();
 			//Debug.Log (gameScore);
 
         }
+
+		if (other.tag == "torpedo") {
+			explodeAudio.Play ();
+			if (!Invincible_) {
+				lives--;
+			}
+			Debug.Log (lives);
+		}
+		if (other.tag == "pickupSpeed") {
+			pickupAudio.Play ();
+			Speed_ = true;
+			SpeedText.color = Color.green;
+			InvokeRepeating ("powerup", 5, 0);
+			Destroy (other.gameObject);
+		}
+		if (other.tag == "pickupPower") {
+			pickupAudio.Play ();
+			Invincible_ = true;
+			PowerText.color = Color.green;
+			InvokeRepeating ("powerup2", 10, 0);
+			Destroy (other.gameObject);
+		}
     }
 
-	void UpdateCounterUI()
+	void powerup(){
+		Speed_ = false;
+		SpeedText.color = Color.grey;
+	}
+
+	void powerup2(){
+		Invincible_ = false;
+		PowerText.color = Color.grey;
+	}
+
+	void UpdateUI()
 	{
 		if (gameScore > highScore) {
 			highScore = gameScore;
 		}
 		scoreText.text = "Score: " + gameScore;
 		highScoreText.text = "Highscore: " + highScore;
+		SpeedText.text = "Speed pickup";
+
+		PowerText.text = "Invincibility";
 
 	}
 }

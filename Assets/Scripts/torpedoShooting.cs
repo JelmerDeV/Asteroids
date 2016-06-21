@@ -8,7 +8,7 @@ public class torpedoShooting : MonoBehaviour {
 	private float speed = 0f;
 	public float spawnRate = 5f;
 	public float startSpawn = 5f;
-	private float nextFire = 0.0F;
+	//private float nextFire = 0.0F;
 
 
 	// Use this for initialization
@@ -22,7 +22,7 @@ public class torpedoShooting : MonoBehaviour {
 	void spawn()
 	{
 		spawnRate = 5f;
-		nextFire = Time.time + spawnRate;
+		//nextFire = Time.time + spawnRate;
 
 		Rigidbody instantiatedProjectile = Instantiate (projectile,
 			transform.position,

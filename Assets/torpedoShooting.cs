@@ -1,35 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TorpedoShooting : MonoBehaviour {
-
+	
 	public Rigidbody projectile;
 
 	private float speed = 0f;
-	public float spawnRate = 5f;
-	public float startSpawn = 5f;
-	private float nextFire = 0.0F;
+	public int spawnRate = Random.Range (3, 15);
+	public float startSpawn = 4f;
+
 
 
 	// Use this for initialization
 	void Start () {
+		Debug.Log(spawnRate);
 		InvokeRepeating ("spawn", startSpawn, spawnRate);
 	}
 
 	// Update is called once per frame
 
-
+	void Update(){
+		Debug.Log(spawnRate);
+	}
 	void spawn()
 	{
-		spawnRate = 5f;
-		nextFire = Time.time + spawnRate;
+		
+		spawnRate = Random.Range (3, 15);
 
 		Rigidbody instantiatedProjectile = Instantiate (projectile,
 			transform.position,
 			transform.rotation)
 			as Rigidbody;
 
-		instantiatedProjectile.velocity = transform.TransformDirection (new Vector3 (0, 0, speed));
+		instantiatedProjectile.velocity = transform.TransformDirection (new Vector3 (0, speed, 0));
 
 
 	}

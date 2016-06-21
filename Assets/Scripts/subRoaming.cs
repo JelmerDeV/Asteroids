@@ -8,11 +8,11 @@ public class subRoaming: MonoBehaviour {
 	public float timer;
 	void Start () {
 		timer = Random.Range (2f, 5f);
-		speed = Random.Range (1.0f, 5.0f);
+		speed = Random.Range (1.0f, 8.0f);
 		rotateL = Random.Range (0f, 100f);
 		rotateR = Random.Range (0f, 100f);
 		InvokeRepeating ("move", 0, timer);
-		Debug.Log (timer);
+		//Debug.Log (timer);
 
 	}
 
@@ -26,7 +26,7 @@ public class subRoaming: MonoBehaviour {
 	void move(){
 		rotateL = Random.Range (0f, 100f);
 		rotateR = Random.Range (0f, 100f);
-		speed = Random.Range (1.0f, 5.0f);
+		speed = Random.Range (1.0f, 8.0f);
 		timer = Random.Range (0.5f, 1.5f);
 	}
 	void OnTriggerEnter(Collider other)
